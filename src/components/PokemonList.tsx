@@ -20,7 +20,9 @@ const PokemonList: React.FC = () => {
 export default PokemonList;
 
 const Base = styled.section`
-  margin-top: 21px;
+  margin: 0 auto;
+  width: 1000px;
+  margin-top: 20px;
 `;
 
 const List = styled.ul``;
