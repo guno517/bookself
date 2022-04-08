@@ -1,9 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
+import usePokemon from "../hooks/usePokemon";
 
 const PokemonList: React.FC = () => {
   const imageUrl = (index: number): string =>
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`;
+
+  const { isLoading, isError, data } = usePokemon();
+  console.log(data);
+
   return (
     <Base>
       <List>
