@@ -40,3 +40,17 @@ export type Types = {
   }
   weight: number;
 }
+
+export type PokemonResponse = {
+
+}
+
+export type ListResponse = {
+  count: number;
+  results: Array<SimplePokemonInfo>
+}
+
+export type SimplePokemonInfo = {
+  name: string;
+  url: string;
+}

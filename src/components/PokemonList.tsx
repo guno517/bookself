@@ -1,16 +1,31 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 import usePokemon from "../hooks/usePokemon";
+import { ListResponse } from "../types";
 
 const PokemonList: React.FC = () => {
   const imageUrl = (index: number): string =>
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`;
 
-  const { isLoading, isError, data } = usePokemon();
-  console.log(data);
+  const { isLoading, isError, data } = usePokemon<ListResponse>();
 
   return (
     <Base>
+      {isLoading || isError ? (
+        <LoadingWrapper>
+          <Loading src={"/loading.gif"} alt="loading" />
+        </LoadingWrapper>
+      ) : (
+        <List>
+          {data?.data.results.map((pokemon, idx) => (
+            <ListItem key={pokemon.name}>
+              <Image src={imageUrl(idx + 1)} />
+              <Name>{pokemon.name}</Name>
+              <Index>#001</Index>
+            </ListItem>
+          ))}
+        </List>
+      )}
       <List>
         <ListItem>
           <Image src={imageUrl(1)} />
@@ -29,6 +44,10 @@ const Base = styled.section`
   width: 1000px;
   margin-top: 20px;
 `;
+
+const LoadingWrapper = styled.div``;
+
+const Loading = styled.img``;
 
 const List = styled.ul``;
 
