@@ -54,3 +54,15 @@ export type SimplePokemonInfo = {
   name: string;
   url: string;
 }
+
+export type SimplePokemonName = {
+  names: [
+    {
+      language: {
+        name: string;
+        url: string;
+      }
+      name: string
+    }
+  ]
+}
