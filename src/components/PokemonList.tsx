@@ -1,17 +1,25 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 import usePokemon from "../hooks/usePokemon";
-import { ListResponse } from "../types";
+import usePokemonKr from "../hooks/usePokemonKr";
+import { ListResponse, SimplePokemonName } from "../types";
 
 const PokemonList: React.FC = () => {
   const imageUrl = (index: number): string =>
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`;
 
-  const { isLoading, isError, data } = usePokemon<ListResponse>();
+  // const { isLoading, isError, data } = usePokemon<ListResponse>();
+  const { data } = usePokemonKr();
+
+  console.log(data);
+
+  const formatNumber = (index: number): string => {
+    return `#${String(index).padStart(3, "0")}`;
+  };
 
   return (
     <Base>
-      {isLoading || isError ? (
+      {/* {isLoading || isError ? (
         <LoadingWrapper>
           <Loading src={"/loading.gif"} alt="loading" />
         </LoadingWrapper>
@@ -21,7 +29,7 @@ const PokemonList: React.FC = () => {
             <ListItem key={pokemon.name}>
               <Image src={imageUrl(idx + 1)} />
               <Name>{pokemon.name}</Name>
-              <Index>#001</Index>
+              <Index>{formatNumber(idx)}</Index>
             </ListItem>
           ))}
         </List>
@@ -32,7 +40,7 @@ const PokemonList: React.FC = () => {
           <Name>bulbasaur</Name>
           <Index>#001</Index>
         </ListItem>
-      </List>
+      </List> */}
     </Base>
   );
 };
