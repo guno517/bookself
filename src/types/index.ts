@@ -66,3 +66,11 @@ export type SimplePokemonName = {
     }
   ]
 }
+
+export type Type = {
+
+}
+
+export type Color = {
+  name: string;
+}
