@@ -1,4 +1,4 @@
-export const mapColorToHex = (color: string) => {
+export const mapColorToHex = (color?: string) => {
   switch (color) {
     case 'white':
     case 'gray':
