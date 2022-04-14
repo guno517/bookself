@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import { Color, Type } from "../types";
-import { mapColorToHex } from "../utils";
+import { mapColorToHex, mapTypeToHex } from "../utils";
 
 interface IInfo {
   id: string;
@@ -12,6 +12,10 @@ interface IInfo {
 }
 
 const PokemonInfo: React.FC<IInfo> = ({ id, name, types, color }) => {
+  const formatNumber = (index: string): string => {
+    return `#${String(index).padStart(3, "0")}`;
+  };
+
   return (
     <Base color={mapColorToHex(color?.name)}>
       <ImgWrapper>
@@ -19,11 +23,14 @@ const PokemonInfo: React.FC<IInfo> = ({ id, name, types, color }) => {
       </ImgWrapper>
       <InfoWrapper>
         <Name>{name}</Name>
+        <Index>{formatNumber(id)}</Index>
       </InfoWrapper>
       <TypeList>
-        <TypeWrapper>
-          <TypeInfo />
-        </TypeWrapper>
+        {types?.map(({ type }, idx) => (
+          <TypeWrapper key={idx} color={mapTypeToHex(type.name)}>
+            <TypeInfo src={`/assets/${type.name}.svg`} />
+          </TypeWrapper>
+        ))}
       </TypeList>
       <ThumbnailWrapper>
         <Thumbnail />
