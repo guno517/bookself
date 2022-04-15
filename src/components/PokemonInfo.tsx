@@ -33,7 +33,9 @@ const PokemonInfo: React.FC<IInfo> = ({ id, name, types, color }) => {
         ))}
       </TypeList>
       <ThumbnailWrapper>
-        <Thumbnail />
+        <Thumbnail
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+        />
       </ThumbnailWrapper>
     </Base>
   );
