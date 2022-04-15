@@ -2,13 +2,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 import PokemonList from "../components/PokemonList";
+import PokemonInfo from "../components/PokemonInfo";
 
 const IndexPage: React.FC = () => {
-  return (
-    <Base>
-      <PokemonList />
-    </Base>
-  );
+  return <Base>{/* <PokemonList /> */}</Base>;
 };
 
 export default IndexPage;

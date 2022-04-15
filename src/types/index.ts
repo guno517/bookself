@@ -68,7 +68,9 @@ export type SimplePokemonName = {
 }
 
 export type Type = {
-
+  type: {
+    name: string;
+  };
 }
 
 export type Color = {
