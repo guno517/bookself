@@ -11,17 +11,14 @@ interface ITabs {
 const Tabs: React.FC<ITabs> = ({ tab, onClick, color }) => {
   return (
     <List>
-      <ListItem active={tab === "about"} onClick={() => onClick("about")}>
-        <TabBtn>About</TabBtn>
+      <ListItem onClick={() => onClick("about")}>
+        <TabBtn active={tab === "about"}>About</TabBtn>
       </ListItem>
-      <ListItem active={tab === "stats"} onClick={() => onClick("stats")}>
-        <TabBtn>Stats</TabBtn>
+      <ListItem onClick={() => onClick("stats")}>
+        <TabBtn active={tab === "stats"}>Stats</TabBtn>
       </ListItem>
-      <ListItem
-        active={tab === "evolution"}
-        onClick={() => onClick("evolution")}
-      >
-        <TabBtn>Evolution</TabBtn>
+      <ListItem onClick={() => onClick("evolution")}>
+        <TabBtn active={tab === "evolution"}>Evolution</TabBtn>
       </ListItem>
     </List>
   );
@@ -34,10 +31,10 @@ const List = styled.ul`
   display: flex;
 `;
 
-const ListItem = styled.li<{ active?: boolean }>`
+const ListItem = styled.li`
   & + & {
     margin-left: 16px;
   }
 `;
 
-const TabBtn = styled.button``;
+const TabBtn = styled.button<{ active?: boolean }>``;
