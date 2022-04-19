@@ -19,7 +19,7 @@ const DetailPage: React.FC = () => {
 
   return (
     <div>
-      <Tabs tab={selectedTab} onClick={handleClick} />
+      <Tabs tab={selectedTab} onClick={handleClick} color={{ name: "red" }} />
     </div>
   );
 };
