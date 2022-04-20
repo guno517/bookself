@@ -31,14 +31,18 @@ const About: React.FC<IAbout> = ({
   baseExp,
   abilities,
 }) => {
+  const rarity = isLegendary ? "Legendary" : isMythical ? "Mythical" : "Normal";
+
   return (
     <Base>
-      <FlavorText></FlavorText>
+      <FlavorText>{flavorText}</FlavorText>
       <TypeList>
-        <TypeWrapper>
-          <TypeImage />
-          <TypeLabel></TypeLabel>
-        </TypeWrapper>
+        {types?.map(({ type }, idx) => (
+          <TypeWrapper key={idx}>
+            <TypeImage src={`/assets/${type.name}.svg`} />
+            <TypeLabel>{type.name.toUpperCase()}</TypeLabel>
+          </TypeWrapper>
+        ))}
       </TypeList>
       <InfoContainerWrapper>
         <Title>Pokedex Data</Title>
@@ -46,6 +50,10 @@ const About: React.FC<IAbout> = ({
           <InfoItem>
             <InfoItemLabel></InfoItemLabel>
             <InfoItemValue></InfoItemValue>
+          </InfoItem>
+          <InfoItem>
+            <InfoItemLabel>Rarity</InfoItemLabel>
+            <InfoItemValue>{rarity}</InfoItemValue>
           </InfoItem>
         </InfoContainer>
       </InfoContainerWrapper>
