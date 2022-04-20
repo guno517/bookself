@@ -48,8 +48,26 @@ const About: React.FC<IAbout> = ({
         <Title>Pokedex Data</Title>
         <InfoContainer>
           <InfoItem>
-            <InfoItemLabel></InfoItemLabel>
-            <InfoItemValue></InfoItemValue>
+            <InfoItemLabel>Height</InfoItemLabel>
+            <InfoItemValue>{height}</InfoItemValue>
+          </InfoItem>
+          <InfoItem>
+            <InfoItemLabel>Weight</InfoItemLabel>
+            <InfoItemValue>{weight}</InfoItemValue>
+          </InfoItem>
+          <InfoItem>
+            <InfoItemLabel>Gender</InfoItemLabel>
+            <InfoItemValue>
+              {genderRate === -1 ? "Unknown" : "Male / Female"}
+            </InfoItemValue>
+          </InfoItem>
+          <InfoItem>
+            <InfoItemLabel>Growth Rate</InfoItemLabel>
+            <InfoItemValue>{growthRate}</InfoItemValue>
+          </InfoItem>
+          <InfoItem>
+            <InfoItemLabel>Base Exp</InfoItemLabel>
+            <InfoItemValue>{baseExp}</InfoItemValue>
           </InfoItem>
           <InfoItem>
             <InfoItemLabel>Rarity</InfoItemLabel>
