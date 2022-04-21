@@ -81,13 +81,30 @@ const About: React.FC<IAbout> = ({
 
 export default About;
 
-const Base = styled.div``;
+const Base = styled.div`
+  padding: 20px;
+`;
 
-const FlavorText = styled.p``;
+const FlavorText = styled.p`
+  margin: 0 auto;
+  word-break: break-word;
+  font-size: 14px;
+  color: #374151;
+`;
 
-const TypeWrapper = styled.div``;
+const TypeWrapper = styled.div<{ color: string }>`
+  background-color: ${({ color }) => color};
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+`;
 
-const TypeList = styled.div``;
+const TypeList = styled.div`
+  display: flex;
+  margin-top: 8px;
+`;
 
 const TypeImage = styled.img``;
 
