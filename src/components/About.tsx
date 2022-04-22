@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Ability, Color, Type } from "../types";
+import { mapTypeToHex } from "../utils";
 
 interface IAbout {
   isLoading: boolean;
@@ -38,40 +39,50 @@ const About: React.FC<IAbout> = ({
       <FlavorText>{flavorText}</FlavorText>
       <TypeList>
         {types?.map(({ type }, idx) => (
-          <TypeWrapper key={idx}>
+          <TypeWrapper key={idx} color={mapTypeToHex(type.name)}>
             <TypeImage src={`/assets/${type.name}.svg`} />
             <TypeLabel>{type.name.toUpperCase()}</TypeLabel>
           </TypeWrapper>
         ))}
       </TypeList>
       <InfoContainerWrapper>
-        <Title>Pokedex Data</Title>
+        <Title color={mapTypeToHex(color?.name)}>Pokedex Data</Title>
         <InfoContainer>
           <InfoItem>
             <InfoItemLabel>Height</InfoItemLabel>
-            <InfoItemValue>{height}</InfoItemValue>
+            <InfoItemValue color={mapTypeToHex(color?.name)}>
+              {height}
+            </InfoItemValue>
           </InfoItem>
           <InfoItem>
             <InfoItemLabel>Weight</InfoItemLabel>
-            <InfoItemValue>{weight}</InfoItemValue>
+            <InfoItemValue color={mapTypeToHex(color?.name)}>
+              {weight}
+            </InfoItemValue>
           </InfoItem>
           <InfoItem>
             <InfoItemLabel>Gender</InfoItemLabel>
-            <InfoItemValue>
+            <InfoItemValue color={mapTypeToHex(color?.name)}>
               {genderRate === -1 ? "Unknown" : "Male / Female"}
             </InfoItemValue>
           </InfoItem>
           <InfoItem>
             <InfoItemLabel>Growth Rate</InfoItemLabel>
-            <InfoItemValue>{growthRate}</InfoItemValue>
+            <InfoItemValue color={mapTypeToHex(color?.name)}>
+              {growthRate}
+            </InfoItemValue>
           </InfoItem>
           <InfoItem>
             <InfoItemLabel>Base Exp</InfoItemLabel>
-            <InfoItemValue>{baseExp}</InfoItemValue>
+            <InfoItemValue color={mapTypeToHex(color?.name)}>
+              {baseExp}
+            </InfoItemValue>
           </InfoItem>
           <InfoItem>
             <InfoItemLabel>Rarity</InfoItemLabel>
-            <InfoItemValue>{rarity}</InfoItemValue>
+            <InfoItemValue color={mapTypeToHex(color?.name)}>
+              {rarity}
+            </InfoItemValue>
           </InfoItem>
         </InfoContainer>
       </InfoContainerWrapper>
