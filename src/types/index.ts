@@ -75,4 +75,5 @@ export type Type = {
 
 export type Color = {
   name: string;
+  url: string;
 }
