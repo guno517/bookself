@@ -7,10 +7,10 @@ interface IAbilities {
   color?: Color;
 }
 
-const Abilities: React.FC<IAbilities> = () => {
+const Abilities: React.FC<IAbilities> = ({ color }) => {
   return (
     <Base>
-      <Title color={mapColorToHex(color?.name)}></Title>
+      <Title color={mapColorToHex(color?.name)}>Abilities</Title>{" "}
       <List>
         <ListItem>
           <Label>Label</Label>
@@ -27,7 +27,7 @@ const Base = styled.div`
   margin-top: 32px;
 `;
 
-const Title = styled.div<{ color: string }>`
+const Title = styled.h4<{ color: string }>`
   margin: 0;
   padding: 0;
   font-size: 20px;
