@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled/macro";
 import usePokemon from "../hooks/usePokemon";
 import usePokemonKr from "../hooks/usePokemonKr";
-import { ListResponse, SimplePokemonName } from "../types";
+import { ListResponse } from "../types";
 
 const PokemonList: React.FC = () => {
   const imageUrl = (index: number): string =>
