@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Ability, Color, Type } from "../types";
 import { mapTypeToHex } from "../utils";
+import Abilities from "./Abilities";
 
 interface IAbout {
   isLoading: boolean;
@@ -86,6 +87,7 @@ const About: React.FC<IAbout> = ({
           </InfoItem>
         </InfoContainer>
       </InfoContainerWrapper>
+      {abilities && <Abilities abilities={abilities} />}
     </Base>
   );
 };
