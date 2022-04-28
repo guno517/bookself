@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { Color } from "../types";
+import { Ability, Color } from "../types";
 import { mapColorToHex } from "../utils";
 
 interface IAbilities {
   color?: Color;
+  abilities: Array<Ability>;
 }
 
-const Abilities: React.FC<IAbilities> = ({ color }) => {
+const Abilities: React.FC<IAbilities> = ({ abilities, color }) => {
   return (
     <Base>
       <Title color={mapColorToHex(color?.name)}>Abilities</Title>{" "}
